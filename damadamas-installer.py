@@ -186,7 +186,7 @@ else:
 	url = "/usr/share/icons"
 
 is_delete = False
-if os.path.exists(url+"/DamaDamas-icon-theme"):
+if os.path.exists(url+"/damadamas"):
 	question_is_delete()
 
 question_h_or_v()
@@ -194,8 +194,8 @@ question_h_or_v()
 question_color_change()
 
 print("Copying files. Please wait...")
-if not os.path.exists(url+"/DamaDamas-icon-theme"):
-	os.makedirs(url+"/DamaDamas-icon-theme")
+if not os.path.exists(url+"/damadamas"):
+	os.makedirs(url+"/damadamas")
 
 """We set up and copy the directories to be copied according to the user's choice."""
 
@@ -205,7 +205,7 @@ else:
     copy_dirs = ['vertical/mimetypes', 'categories', 'vertical/places', 'emblems', 'apps', 'extras', 'index.theme', 'devices', 'actions', 'status']
 for dirs in copy_dirs:
 	print(os.getcwd()+"/"+dirs)
-	os.system("rsync --delete -axHAWX --numeric-ids " + os.getcwd()+"/"+dirs + " " + url + "/DamaDamas-icon-theme" + " --exclude /proc")
+	os.system("rsync --delete -axHAWX --numeric-ids " + os.getcwd()+"/"+dirs + " " + url + "/damadamas" + " --exclude /proc")
 print("Complate.\n=====================================")
 
 if color_change:
@@ -216,16 +216,16 @@ if color_change:
 	if folder_color:
 		"""Change folder colors"""
 		print("Change folder colors...")
-		folder_icons_change_color(url + "/DamaDamas-icon-theme/places/user-folders/",folder_colors.get("default")[0],folder_color[0])
-		folder_icons_change_color(url + "/DamaDamas-icon-theme/places/user-folders/",folder_colors.get("default")[1],folder_color[1])
-		file_icons_change_color(url+"/DamaDamas-icon-theme/mimetypes/file-types/inode-directory.svg",folder_colors.get("default")[0],folder_color[0])
-		file_icons_change_color(url+"/DamaDamas-icon-theme/mimetypes/file-types/inode-directory.svg",folder_colors.get("default")[1],folder_color[1])
+		folder_icons_change_color(url + "/damadamas/places/user-folders/",folder_colors.get("default")[0],folder_color[0])
+		folder_icons_change_color(url + "/damadamas/places/user-folders/",folder_colors.get("default")[1],folder_color[1])
+		file_icons_change_color(url+"/damadamas/mimetypes/file-types/inode-directory.svg",folder_colors.get("default")[0],folder_color[0])
+		file_icons_change_color(url+"/damadamas/mimetypes/file-types/inode-directory.svg",folder_colors.get("default")[1],folder_color[1])
 	if actions_colors:
 		"""Change actions colors"""
 		print("Change actions colors...")
-		folder_icons_change_color(url + "/DamaDamas-icon-theme/actions/","394050",actions_colors)
+		folder_icons_change_color(url + "/damadamas/actions/","394050",actions_colors)
 	if panel_colors:
 		"""Change panel colors"""
 		print("Change actions colors...")
-		folder_icons_change_color(url + "/DamaDamas-icon-theme/status/panel/","f7f7f7",panel_colors)
+		folder_icons_change_color(url + "/damadamas/status/panel/","f7f7f7",panel_colors)
 	print("İnstalled Success..\nYou can use damadamas theme from system settings.")
